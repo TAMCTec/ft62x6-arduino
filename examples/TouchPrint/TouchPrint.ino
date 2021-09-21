@@ -1,12 +1,12 @@
-#include "FT62X6.h"
+#include "TAMC_FT62X6.h"
 
-FT62X6 tp = FT62X6();
+TAMC_FT62X6 tp = TAMC_FT62X6();
 
 void setup() {
   tp.begin();
   tp.setRotation(ROTATION_NORMAL);
   Serial.begin(115200);
-  Serial.println("FT62X6 Example: Ready");
+  Serial.println("TAMC_FT62X6 Example: Ready");
 }
 
 void loop() {

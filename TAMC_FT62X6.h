@@ -1,6 +1,6 @@
 
-#ifndef FT62X6_H
-#define FT62X6_H
+#ifndef TAMC_FT62X6_H
+#define TAMC_FT62X6_H
 
 #include "Arduino.h"
 #include <Wire.h>
@@ -59,10 +59,10 @@ class TP_Point {
     int area;
 };
 
-class FT62X6 {
+class TAMC_FT62X6 {
   public:
-    FT62X6(void);
-    FT62X6(int _sda, int _scl);
+    TAMC_FT62X6(void);
+    TAMC_FT62X6(int _sda, int _scl);
     void begin(int thresh = DEFAULT_THRESHOLD);
     void setRotation(int rot);
     byte getGesture(void);
@@ -80,4 +80,4 @@ class FT62X6 {
     int scl;
 };
 
-#endif // FT62X6_H
+#endif // TAMC_FT62X6_H

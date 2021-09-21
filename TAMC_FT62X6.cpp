@@ -1,21 +1,21 @@
 #include "Arduino.h"
-#include <FT62X6.h>
+#include <TAMC_TAMC_FT62X6.h>
 #include <Wire.h>
 
-FT62X6::FT62X6() {
+TAMC_FT62X6::TAMC_FT62X6() {
   sda = I2C_SDA;
   scl = I2C_SCL;
 }
-FT62X6::FT62X6(int _sda, int _scl): sda(_sda), scl(_scl) {}
+TAMC_FT62X6::TAMC_FT62X6(int _sda, int _scl): sda(_sda), scl(_scl) {}
 
-void FT62X6::begin(int thresh) {
+void TAMC_FT62X6::begin(int thresh) {
   Wire.begin(sda, scl);
   writeByte(REG_TH_GROUP, thresh);
 }
-void FT62X6::setRotation(int rot) {
+void TAMC_FT62X6::setRotation(int rot) {
   rotation = rot;
 }
-void FT62X6::read(void) {
+void TAMC_FT62X6::read(void) {
   byte data[16];
 
   Wire.beginTransmission(ADDR);
@@ -48,7 +48,7 @@ void FT62X6::read(void) {
   }
 }
 
-byte FT62X6::readByte(byte reg) {
+byte TAMC_FT62X6::readByte(byte reg) {
   byte x;
   Wire.beginTransmission(ADDR);
   Wire.write(reg);
@@ -60,7 +60,7 @@ byte FT62X6::readByte(byte reg) {
   return x;
 }
 
-void FT62X6::writeByte(byte reg, byte val) {
+void TAMC_FT62X6::writeByte(byte reg, byte val) {
   // use i2c
   Wire.beginTransmission(ADDR);
   Wire.write(reg);
