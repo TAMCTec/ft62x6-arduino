@@ -88,20 +88,20 @@ TP_Point::TP_Point(byte *data, int rot) {
   weight = data[4];
   area = data[5] & 0x0F;
   switch (rot){
-    case 0:
+    case ROTATION_LEFT:
       x = 240 - x;
       y = 320 - y;
       break;
-    case 1:
+    case ROTATION_INVERTED:
       temp = x;
       x = 320 - y;
       y = temp;
       break;
-    case 2:
+    case ROTATION_RIGHT:
       x = x;
       y = y;
       break;
-    case 3:
+    case ROTATION_NORMAL:
       temp = x;
       x = y;
       y = 240 - temp;

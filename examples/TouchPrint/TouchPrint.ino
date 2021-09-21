@@ -4,7 +4,7 @@ FT62X6 tp = FT62X6();
 
 void setup() {
   tp.begin();
-  tp.setRotation(0);
+  tp.setRotation(ROTATION_NORMAL);
   Serial.begin(115200);
   Serial.println("FT62X6 Example: Ready");
 }
