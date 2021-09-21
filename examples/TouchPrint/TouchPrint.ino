@@ -1,12 +1,12 @@
-#include "FT6X06.h"
+#include "FT62X6.h"
 
-FT6X06 tp = FT6X06();
+FT62X6 tp = FT62X6();
 
 void setup() {
   tp.begin();
   tp.setRotation(0);
   Serial.begin(115200);
-  Serial.println("FT6X06 Example: Ready");
+  Serial.println("FT62X6 Example: Ready");
 }
 
 void loop() {

@@ -1,21 +1,21 @@
 #include "Arduino.h"
-#include <FT6X06.h>
+#include <FT62X6.h>
 #include <Wire.h>
 
-FT6X06::FT6X06() {
+FT62X6::FT62X6() {
   sda = I2C_SDA;
   scl = I2C_SCL;
 }
-FT6X06::FT6X06(int _sda, int _scl): sda(_sda), scl(_scl) {}
+FT62X6::FT62X6(int _sda, int _scl): sda(_sda), scl(_scl) {}
 
-void FT6X06::begin(int thresh) {
+void FT62X6::begin(int thresh) {
   Wire.begin(sda, scl);
   writeByte(REG_TH_GROUP, thresh);
 }
-void FT6X06::setRotation(int rot) {
+void FT62X6::setRotation(int rot) {
   rotation = rot;
 }
-void FT6X06::read(void) {
+void FT62X6::read(void) {
   byte data[16];
 
   Wire.beginTransmission(ADDR);
@@ -48,7 +48,7 @@ void FT6X06::read(void) {
   }
 }
 
-byte FT6X06::readByte(byte reg) {
+byte FT62X6::readByte(byte reg) {
   byte x;
   Wire.beginTransmission(ADDR);
   Wire.write(reg);
@@ -60,7 +60,7 @@ byte FT6X06::readByte(byte reg) {
   return x;
 }
 
-void FT6X06::writeByte(byte reg, byte val) {
+void FT62X6::writeByte(byte reg, byte val) {
   // use i2c
   Wire.beginTransmission(ADDR);
   Wire.write(reg);
