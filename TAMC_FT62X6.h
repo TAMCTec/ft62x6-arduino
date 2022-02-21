@@ -3,12 +3,11 @@
 #define TAMC_FT62X6_H
 
 #include "Arduino.h"
-#include <Wire.h>
 
 #define ADDR 0x38
 
-#define I2C_SCL 5
-#define I2C_SDA 4
+#define I2C_DEFAULT_SDA 4
+#define I2C_DEFAULT_SCL 5
 
 #define REG_DEV_MODE  0x00
 #define REG_GEST_ID   0x01
@@ -62,7 +61,6 @@ class TP_Point {
 class TAMC_FT62X6 {
   public:
     TAMC_FT62X6(void);
-    TAMC_FT62X6(int _sda, int _scl);
     void begin(int thresh = DEFAULT_THRESHOLD);
     void setRotation(int rot);
     byte getGesture(void);
@@ -76,8 +74,6 @@ class TAMC_FT62X6 {
     void writeByte(byte reg, byte val);
     byte readByte(byte reg);
     int rotation = 0;
-    int sda;
-    int scl;
 };
 
 #endif // TAMC_FT62X6_H

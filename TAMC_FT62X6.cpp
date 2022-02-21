@@ -1,15 +1,10 @@
 #include "Arduino.h"
-#include <TAMC_TAMC_FT62X6.h>
+#include <TAMC_FT62X6.h>
 #include <Wire.h>
 
 TAMC_FT62X6::TAMC_FT62X6() {
-  sda = I2C_SDA;
-  scl = I2C_SCL;
 }
-TAMC_FT62X6::TAMC_FT62X6(int _sda, int _scl): sda(_sda), scl(_scl) {}
-
 void TAMC_FT62X6::begin(int thresh) {
-  Wire.begin(sda, scl);
   writeByte(REG_TH_GROUP, thresh);
 }
 void TAMC_FT62X6::setRotation(int rot) {
