@@ -1,4 +1,4 @@
-#include "TAMC_FT62X6.h"
+#include <TAMC_FT62X6.h>
 #include <Wire.h>
 
 #define SDA 4
