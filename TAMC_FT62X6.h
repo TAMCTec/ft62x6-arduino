@@ -61,10 +61,11 @@ class TP_Point {
 class TAMC_FT62X6 {
   public:
     TAMC_FT62X6(void);
-    void begin(int thresh = DEFAULT_THRESHOLD);
+    bool begin(int thresh = DEFAULT_THRESHOLD);
     void setRotation(int rot);
     byte getGesture(void);
     void read(void);
+    bool test(void);
     int touches = 0;
     bool isTouched = false;
     byte gesture = NO_GESTURE;

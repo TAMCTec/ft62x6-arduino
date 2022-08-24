@@ -4,8 +4,12 @@
 
 TAMC_FT62X6::TAMC_FT62X6() {
 }
-void TAMC_FT62X6::begin(int thresh) {
+bool TAMC_FT62X6::begin(int thresh) {
+  if (test()){
+    return false;
+  };
   writeByte(REG_TH_GROUP, thresh);
+  return true;
 }
 void TAMC_FT62X6::setRotation(int rot) {
   rotation = rot;
@@ -61,6 +65,12 @@ void TAMC_FT62X6::writeByte(byte reg, byte val) {
   Wire.write(reg);
   Wire.write(val);
   Wire.endTransmission();
+}
+
+bool TAMC_FT62X6::test(void) {
+  Wire.beginTransmission(address);
+  byte error = Wire.endTransmission();
+  return error == 0;
 }
 
 TP_Point::TP_Point(void) {
