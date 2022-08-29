@@ -68,7 +68,7 @@ void TAMC_FT62X6::writeByte(byte reg, byte val) {
 }
 
 bool TAMC_FT62X6::test(void) {
-  Wire.beginTransmission(address);
+  Wire.beginTransmission(ADDR);
   byte error = Wire.endTransmission();
   return error == 0;
 }
