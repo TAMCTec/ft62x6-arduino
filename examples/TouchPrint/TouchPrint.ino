@@ -1,13 +1,10 @@
 #include <TAMC_FT62X6.h>
 #include <Wire.h>
 
-#define SDA 4
-#define SCL 5
-
 TAMC_FT62X6 tp = TAMC_FT62X6();
 
 void setup() {
-  Wire.begin(SDA, SCL);
+  Wire.begin();
   tp.begin();
   tp.setRotation(ROTATION_NORMAL);
   Serial.begin(115200);
