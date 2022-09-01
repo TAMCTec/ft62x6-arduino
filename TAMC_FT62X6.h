@@ -6,9 +6,6 @@
 
 #define ADDR 0x38
 
-#define I2C_DEFAULT_SDA 4
-#define I2C_DEFAULT_SCL 5
-
 #define REG_DEV_MODE  0x00
 #define REG_GEST_ID   0x01
 #define REG_TD_STATUS 0x02
