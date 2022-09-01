@@ -5,7 +5,7 @@
 TAMC_FT62X6::TAMC_FT62X6() {
 }
 bool TAMC_FT62X6::begin(int thresh) {
-  if (test()){
+  if (!test()){
     return false;
   };
   writeByte(REG_TH_GROUP, thresh);
